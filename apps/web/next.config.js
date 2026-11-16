@@ -1,0 +1,27 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: [
+      'images.unsplash.com',
+      'uhrskxkgbpzzanehwefm.supabase.co',
+      'via.placeholder.com',
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/v1/:path*',
+        destination: 'http://localhost:5000/api/v1/:path*',
+      },
+    ];
+  },
+};
+
+module.exports = nextConfig;

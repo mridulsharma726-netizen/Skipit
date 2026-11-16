@@ -1,0 +1,31 @@
+{
+  "name": "skipit-monorepo",
+  "version": "3.0.0",
+  "description": "SkipIt — Peer-to-Peer Rental Discovery & Marketplace Platform",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:backend": "npm --prefix apps/backend run dev",
+    "dev:web": "npm --prefix apps/web run dev",
+    "start:backend": "npm --prefix apps/backend start",
+    "build:web": "npm --prefix apps/web run build",
+    "test:backend": "npm --prefix apps/backend test",
+    "test:web": "npm --prefix apps/web test",
+    "mobile:run": "cd apps/mobile && flutter run",
+    "mobile:test": "cd apps/mobile && flutter test"
+  },
+  "keywords": [
+    "p2p-rental",
+    "marketplace",
+    "skipit",
+    "flutter",
+    "nextjs",
+    "express",
+    "supabase"
+  ],
+  "author": "SkipIt Team",
+  "license": "ISC"
+}

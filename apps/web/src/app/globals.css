@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F4F7FC;
+    color: #0F172A;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(at 15% 15%, rgba(96, 165, 250, 0.08) 0px, transparent 50%),
+      radial-gradient(at 85% 25%, rgba(37, 99, 235, 0.06) 0px, transparent 50%),
+      radial-gradient(at 50% 85%, rgba(219, 234, 254, 0.4) 0px, transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  /* Glass Level 1 — Subtle (Secondary cards, minor elements) */
+  .glass-1 {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.04);
+  }
+
+  /* Glass Level 2 — Standard (Navigation, Search, Content Cards) */
+  .glass-2 {
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06);
+  }
+
+  /* Glass Level 3 — Premium (Floating panels, Dialogs, Primary Actions) */
+  .glass-3 {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 16px 40px 0 rgba(37, 99, 235, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.03);
+  }
+
+  /* Deep Navy Glass (For hero & dark accents) */
+  .glass-navy {
+    background: rgba(23, 37, 84, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 36px 0 rgba(23, 37, 84, 0.25);
+  }
+
+  /* Liquid Blue Gradient */
+  .liquid-blue-gradient {
+    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 50%, #60A5FA 100%);
+  }
+
+  .liquid-glass-glow {
+    box-shadow: 0 0 25px -4px rgba(37, 99, 235, 0.35);
+  }
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(244, 247, 252, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.8);
+}

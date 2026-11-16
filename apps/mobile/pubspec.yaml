@@ -1,0 +1,30 @@
+name: skipit
+description: "SkipIt — Peer-to-Peer Rental Discovery & Marketplace Mobile Application"
+publish_to: 'none'
+version: 3.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^2.6.1
+  go_router: ^14.6.2
+  dio: ^5.7.0
+  google_fonts: ^6.2.1
+  intl: ^0.19.0
+  shared_preferences: ^2.3.3
+  image_picker: ^1.1.2
+  web_socket_channel: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
