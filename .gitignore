@@ -43,6 +43,7 @@ ios/Runner/GeneratedPluginRegistrant.*
 *serviceAccountKey*.json
 *firebase*.json
 google-services.json
+GoogleService-Info.plist
 
 # Logs
 npm-debug.log*
