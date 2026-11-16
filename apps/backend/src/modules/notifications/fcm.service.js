@@ -23,11 +23,32 @@ const initFirebase = () => {
     if (serviceAccountKey.startsWith('{')) {
       credentialData = JSON.parse(serviceAccountKey);
     } else {
-      credentialData = require(serviceAccountKey);
+      const fs = require('fs');
+      const path = require('path');
+      let targetPath = serviceAccountKey;
+      if (!path.isAbsolute(targetPath)) {
+        const base = path.basename(targetPath);
+        const candidates = [
+          path.resolve(process.cwd(), targetPath),
+          path.resolve(process.cwd(), base),
+          path.resolve(process.cwd(), 'apps/backend', base),
+          path.resolve(__dirname, '../../', base),
+          path.resolve(__dirname, '../../../', base),
+          path.resolve(__dirname, '../../../../', base),
+        ];
+        for (const c of candidates) {
+          if (fs.existsSync(c)) {
+            targetPath = c;
+            break;
+          }
+        }
+      }
+      credentialData = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
     }
 
+    const certAuth = admin.cert ? admin.cert(credentialData) : admin.credential.cert(credentialData);
     admin.initializeApp({
-      credential: admin.credential.cert(credentialData),
+      credential: certAuth,
     });
 
     fcmInitialized = true;

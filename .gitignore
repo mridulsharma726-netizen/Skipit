@@ -40,6 +40,9 @@ ios/Runner/GeneratedPluginRegistrant.*
 .env.development.local
 .env.test.local
 .env.production.local
+*serviceAccountKey*.json
+*firebase*.json
+google-services.json
 
 # Logs
 npm-debug.log*
