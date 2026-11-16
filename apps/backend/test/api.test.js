@@ -1,5 +1,6 @@
 const http = require('http');
 const assert = require('assert');
+const app = require('../src/app');
 
 const BASE_URL = 'http://localhost:5000';
 
@@ -39,7 +40,19 @@ function request(path, options = {}, body = null) {
 async function runTests() {
   console.log('🧪 Starting SkipIt 3.0 Production-Readiness Integration Tests...\n');
 
+  let serverInstance = null;
   try {
+    // Check if server is already running, else start it
+    serverInstance = await new Promise((resolve) => {
+      const s = app.listen(5000, () => resolve(s));
+      s.on('error', (err) => {
+        if (err.code === 'EADDRINUSE') {
+          resolve(null); // Already running
+        } else {
+          throw err;
+        }
+      });
+    });
     // 1. Health Check
     console.log('[1/10] Testing Health Endpoint...');
     const health = await request('/api/v1/health');
@@ -169,8 +182,11 @@ async function runTests() {
     console.log('  ✓ Listing status toggled and temporary test item deleted');
 
     console.log('\n🎉 ALL 10 INTEGRATION WORKFLOW SUITES PASSED FLAWLESSLY!\n');
+    if (serverInstance) serverInstance.close();
+    process.exit(0);
   } catch (err) {
     console.error('\n❌ TEST FAILED:', err);
+    if (serverInstance) serverInstance.close();
     process.exit(1);
   }
 }

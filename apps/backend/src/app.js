@@ -19,6 +19,8 @@ const reviewsRoutes = require('./modules/reviews/reviews.routes');
 const notificationsRoutes = require('./modules/notifications/notifications.routes');
 const reportsRoutes = require('./modules/reports/reports.routes');
 const adminRoutes = require('./modules/admin/admin.routes');
+const rentalsRoutes = require('./modules/rentals/rentals.routes');
+const ticketsRoutes = require('./modules/tickets/tickets.routes');
 
 const app = express();
 
@@ -85,6 +87,12 @@ app.use('/reports', reportsRoutes);
 
 app.use('/api/v1/admin', adminRoutes);
 app.use('/admin', adminRoutes);
+
+app.use('/api/v1/rentals', rentalsRoutes);
+app.use('/rentals', rentalsRoutes);
+
+app.use('/api/v1/tickets', ticketsRoutes);
+app.use('/tickets', ticketsRoutes);
 
 // Direct APK Download for mobile phones
 const serveApk = (req, res) => {

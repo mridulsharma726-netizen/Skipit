@@ -328,8 +328,9 @@ class _CreateListingScreenState extends ConsumerState<CreateListingScreen> {
                                               const TextStyle(fontSize: 12)));
                                 }).toList(),
                                 onChanged: (val) {
-                                  if (val != null)
+                                  if (val != null) {
                                     setState(() => _selectedCategory = val);
+                                  }
                                 },
                               ),
                             ],
@@ -369,8 +370,9 @@ class _CreateListingScreenState extends ConsumerState<CreateListingScreen> {
                                           style: TextStyle(fontSize: 12))),
                                 ],
                                 onChanged: (val) {
-                                  if (val != null)
+                                  if (val != null) {
                                     setState(() => _selectedCondition = val);
+                                  }
                                 },
                               ),
                             ],

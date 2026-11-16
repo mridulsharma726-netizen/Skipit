@@ -534,8 +534,7 @@ class _ListingDetailScreenState extends ConsumerState<ListingDetailScreen> {
                                       children: [
                                         Text(
                                           listing.owner?.fullName ??
-                                              'SkipIt Verified Host',
-                                          'skipit Verified Host',
+                                              'skipit Verified Host',
                                           style: const TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.w800,
