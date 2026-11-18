@@ -19,6 +19,8 @@ dist/
 .packages
 *.lock
 android/.gradle
+.kotlin/
+android/.kotlin/
 android/captures/
 android/gradlew
 android/gradlew.bat
